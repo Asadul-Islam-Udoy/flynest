@@ -7,7 +7,7 @@ const app_1 = __importDefault(require("./app"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const db_1 = require("./config/db");
 const seed_1 = require("./seed/seed");
-dotenv_1.default.config();
+dotenv_1.default.config({ path: '.env' });
 const PORT = process.env.PORT || 8000;
 async function startServer() {
     await (0, db_1.connectDB)();
