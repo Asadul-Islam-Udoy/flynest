@@ -1,4 +1,4 @@
-# Simple Task Mini School Management API
+# Simple Task Mini School Management 
 
 This is a sample application that demonstrates an task using the Node.js, React.js and TypeScript. The application loads contract information a Postgresql database and displays them.
 # Getting Started
