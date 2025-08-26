@@ -13,7 +13,7 @@ export class AuthController {
 
       // Store refresh token in HTTP-only cookie
       res.cookie("accessToken", accessToken, {
-        httpOnly: true,
+        httpOnly: false,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax", // for frontend in different port
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
