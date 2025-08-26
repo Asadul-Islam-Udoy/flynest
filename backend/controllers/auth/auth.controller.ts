@@ -39,9 +39,9 @@ export class AuthController {
 
       // Store refresh token in HTTP-only cookie
       res.cookie("accessToken", accessToken, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+        httpOnly: true, // safer
+        secure: process.env.NODE_ENV === "production", // only https in prod
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
 
