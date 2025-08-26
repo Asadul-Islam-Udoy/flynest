@@ -47,23 +47,9 @@ Postgresql
 ui-Router
 Docker
 
-## Web site
-url = https://orangetoolz.onrender.com
+## Web site live link
+url = https://harmonious-nasturtium-35b1e4.netlify.app
 email = admin@school.com
 pass = admin123
 
-######
-PORT = 8000
-JWT_SECRET=supersecretjwtsdfsdkfosdfjl
-JWT_REFRESH_SECRET = sdjfosdfjowire2934824
-NODE_ENV=development
-
-#### Database (match docker-compose environment)
-DB_USER=postgres
-DB_PASSWORD=root
-DB_NAME=flynest
-##### docker
-DATABASE_URL=postgres://postgres:root@db:5432/flynest
-##### localhost
-DATABASE_URL=postgres://postgres:root@localhost:5432/flynest
 
