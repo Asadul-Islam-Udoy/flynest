@@ -12,15 +12,19 @@ class AuthController {
             const { accessToken, refreshToken, user } = await auth_service_1.AuthService.signup(dto);
             // Store refresh token in HTTP-only cookie
             res.cookie("accessToken", accessToken, {
-                httpOnly: false,
-                secure: process.env.NODE_ENV === "production",
-                sameSite: "lax", // for frontend in different port
-                maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+                httpOnly: true, // safer
+                secure: process.env.NODE_ENV === "production", // only https in prod
+                sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+                maxAge: 7 * 24 * 60 * 60 * 1000,
             });
             res.json({ accessToken, refreshToken, user });
         }
         catch (err) {
-            res.status(400).json({ error: err instanceof Array ? err.map(e => e.toString()) : err.message });
+            res
+                .status(400)
+                .json({
+                error: err instanceof Array ? err.map((e) => e.toString()) : err.message,
+            });
         }
     }
     static async login(req, res) {
@@ -38,7 +42,11 @@ class AuthController {
             res.json({ accessToken, refreshToken, user });
         }
         catch (err) {
-            res.status(400).json({ error: err instanceof Array ? err.map(e => e.toString()) : err.message });
+            res
+                .status(400)
+                .json({
+                error: err instanceof Array ? err.map((e) => e.toString()) : err.message,
+            });
         }
     }
     static async logout(req, res) {

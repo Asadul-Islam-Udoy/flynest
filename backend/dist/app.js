@@ -18,6 +18,7 @@ const allowedOrigins = [
 ];
 app.use((0, cors_1.default)({
     origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps, curl, Postman)
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         }
@@ -25,8 +26,8 @@ app.use((0, cors_1.default)({
             callback(new Error("Not allowed by CORS"));
         }
     },
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"], // allowed methods
+    credentials: true, // allow cookies / tokens
 }));
 app.use("/auth", auth_routers_1.default);
 app.use("/students", student_routers_1.default);
