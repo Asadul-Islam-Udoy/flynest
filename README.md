@@ -58,12 +58,12 @@ JWT_SECRET=supersecretjwtsdfsdkfosdfjl
 JWT_REFRESH_SECRET = sdjfosdfjowire2934824
 NODE_ENV=development
 
-# Database (match docker-compose environment)
+#### Database (match docker-compose environment)
 DB_USER=postgres
 DB_PASSWORD=root
 DB_NAME=flynest
-# docker
+##### docker
 DATABASE_URL=postgres://postgres:root@db:5432/flynest
-# localhost
+##### localhost
 DATABASE_URL=postgres://postgres:root@localhost:5432/flynest
 
