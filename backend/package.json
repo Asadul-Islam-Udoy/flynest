@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon --watch . --exec ts-node server.ts",
     "build": "tsc",
-    "start": "node dist/server.ts",
+    "start": "node dist/server.js",
     "migrate:generate": "drizzle-kit generate",
     "migrate:push": "drizzle-kit migrate"
   },
